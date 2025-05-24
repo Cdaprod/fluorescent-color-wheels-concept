@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluorescent Colors Chart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chart-section {
+            margin-bottom: 40px;
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .chart-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .hsv-wheel {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            background: conic-gradient(
+                hsl(0, 100%, 50%) 0deg,
+                hsl(60, 100%, 50%) 60deg,
+                hsl(120, 100%, 50%) 120deg,
+                hsl(180, 100%, 50%) 180deg,
+                hsl(240, 100%, 50%) 240deg,
+                hsl(300, 100%, 50%) 300deg,
+                hsl(360, 100%, 50%) 360deg
+            );
+        }
+        .fluorescent-markers {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+        }
+        .marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 3px solid white;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+        .marker.hot-pink { background: #ff0080; top: 25%; left: 85%; }
+        .marker.electric-blue { background: #0080ff; top: 75%; left: 15%; }
+        .marker.lime-green { background: #80ff00; top: 15%; left: 75%; }
+        .marker.safety-orange { background: #ff4000; top: 50%; left: 90%; }
+        
+        .fluorescent-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .color-swatch {
+            height: 80px;
+            border-radius: 8px;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            font-size: 12px;
+            font-weight: bold;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
+            transition: transform 0.2s;
+        }
+        .color-swatch:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255,255,255,0.5);
+        }
+        .rgb-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .rgb-item {
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .rgb-color {
+            width: 100%;
+            height: 60px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .explanation {
+            background: #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .saturation-demo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        .sat-strip {
+            height: 40px;
+            width: 80px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fluorescent Colors in Digital Color Space</h1>
+        
+        <div class="chart-section">
+            <div class="chart-title">HSV Color Wheel - Fluorescent Color Locations</div>
+            <div class="hsv-wheel">
+                <div class="fluorescent-markers">
+                    <div class="marker hot-pink" title="Hot Pink/Magenta"></div>
+                    <div class="marker electric-blue" title="Electric Blue/Cyan"></div>
+                    <div class="marker lime-green" title="Lime Green"></div>
+                    <div class="marker safety-orange" title="Safety Orange"></div>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 14px; opacity: 0.8;">
+                White dots mark common fluorescent color positions on the outer edge (100% saturation)
+            </p>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-title">Common Fluorescent Colors</div>
+            <div class="fluorescent-palette">
+                <div class="color-swatch" style="background: #ff0080;">Hot Pink<br>#FF0080</div>
+                <div class="color-swatch" style="background: #ff0040;">Electric Rose<br>#FF0040</div>
+                <div class="color-swatch" style="background: #ff4000;">Safety Orange<br>#FF4000</div>
+                <div class="color-swatch" style="background: #ff8000;">Electric Orange<br>#FF8000</div>
+                <div class="color-swatch" style="background: #80ff00;">Lime Green<br>#80FF00</div>
+                <div class="color-swatch" style="background: #40ff00;">Electric Green<br>#40FF00</div>
+                <div class="color-swatch" style="background: #00ff80;">Spring Green<br>#00FF80</div>
+                <div class="color-swatch" style="background: #00ffff;">Electric Cyan<br>#00FFFF</div>
+                <div class="color-swatch" style="background: #0080ff;">Electric Blue<br>#0080FF</div>
+                <div class="color-swatch" style="background: #8000ff;">Electric Purple<br>#8000FF</div>
+                <div class="color-swatch" style="background: #ff00ff;">Electric Magenta<br>#FF00FF</div>
+                <div class="color-swatch" style="background: #ff0080;">Neon Pink<br>#FF0080</div>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-title">RGB Breakdown - Notice the Extreme Values</div>
+            <div class="rgb-breakdown">
+                <div class="rgb-item">
+                    <div class="rgb-color" style="background: #ff00ff;"></div>
+                    <strong>Electric Magenta</strong><br>
+                    R: 255 (MAX)<br>
+                    G: 0 (MIN)<br>
+                    B: 255 (MAX)
+                </div>
+                <div class="rgb-item">
+                    <div class="rgb-color" style="background: #00ff00;"></div>
+                    <strong>Electric Green</strong><br>
+                    R: 0 (MIN)<br>
+                    G: 255 (MAX)<br>
+                    B: 0 (MIN)
+                </div>
+                <div class="rgb-item">
+                    <div class="rgb-color" style="background: #00ffff;"></div>
+                    <strong>Electric Cyan</strong><br>
+                    R: 0 (MIN)<br>
+                    G: 255 (MAX)<br>
+                    B: 255 (MAX)
+                </div>
+                <div class="rgb-item">
+                    <div class="rgb-color" style="background: #ff4000;"></div>
+                    <strong>Safety Orange</strong><br>
+                    R: 255 (MAX)<br>
+                    G: 64<br>
+                    B: 0 (MIN)
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="chart-title">Saturation Demonstration - Why Edge Colors Look Fluorescent</div>
+            <p style="text-align: center; margin-bottom: 20px;">Same hue at different saturation levels (Hot Pink example):</p>
+            <div class="saturation-demo">
+                <div class="sat-strip" style="background: hsl(320, 20%, 70%); color: black;">20% Sat</div>
+                <div class="sat-strip" style="background: hsl(320, 40%, 70%); color: black;">40% Sat</div>
+                <div class="sat-strip" style="background: hsl(320, 60%, 70%); color: white;">60% Sat</div>
+                <div class="sat-strip" style="background: hsl(320, 80%, 70%); color: white;">80% Sat</div>
+                <div class="sat-strip" style="background: hsl(320, 100%, 70%); color: white;">100% Sat<br>FLUORESCENT</div>
+            </div>
+        </div>
+
+        <div class="explanation">
+            <h3>Key Points About Digital Fluorescent Colors:</h3>
+            <p><strong>Location:</strong> Fluorescent colors appear at the outer edge of HSV color wheels where saturation reaches 100%. They don't have a dedicated "section" but rather occupy the perimeter.</p>
+            
+            <p><strong>RGB Pattern:</strong> Most fluorescent colors have extreme RGB values - often with one or more channels at 255 (maximum) and others at 0 (minimum), creating the high contrast that makes them appear to "glow."</p>
+            
+            <p><strong>Hue Ranges:</strong> The most common fluorescent colors fall in specific hue ranges:
+            • 300-330° (hot pinks, magentas)
+            • 15-30° (safety orange, electric orange)
+            • 60-90° (lime green, chartreuse)
+            • 180-210° (electric blues, cyans)</p>
+            
+            <p><strong>Digital Limitation:</strong> Real fluorescent materials emit more light than they receive by converting UV to visible light. Computer screens can only approximate this effect through high saturation and strategic color combinations.</p>
+        </div>
+    </div>
+</body>
+</html>
